@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="musicmaps.css">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Music Maps</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <style>
+      html, body {*/
+        height: 100%;*/
+        margin: 0;*/
+        padding: 0;*/
+      }*/
+      #map {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+    <style>
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover {
+        background-color: #111;
+    }
+
+    .active {
+        background-color: #4CAF50;
+    }
+    </style>
+    <ul class="navbar">
+     <li><a href="home.html">Home</a></li>
+     <li><a href="musicmaps.html">Map</a></li>
+     <li><a href="locations.html">Locations</a></li>
+     <li><a href="aboutUs.html">About Us</a></li>
+
+
+    </ul>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 70%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>The Map</h1>
+    <div id="map"></div>
+    <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+
+      function initMap() {
+        var image = "https://cdn0.iconfinder.com/data/icons/16x16-free-toolbar-icons/16/47.png";
+        // adds coordinates of each location
+        var louisarmstrong = {lat: 40.7545844 , lng:-73.86153389999998};
+        var tinpanalley = {lat: 40.74516199999999 , lng:-73.98905100000002};
+        var cbgb = {lat: 40.72528 , lng:-73.99194};
+        var brillbuilding = {lat: 40.7610606 , lng: -73.98474010000001};
+        var carnegiehall= {lat: 40.7650041 , lng: -73.97985030000001};
+
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: tinpanalley
+        });
+        var infoWindow = new google.maps.InfoWindow({map: map});
+
+        var content1 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Louis Armstrong House</h1>'+
+            '34-56 107th Street, Corona'+ '<br>' +
+            '<img src="https://jazzlives.files.wordpress.com/2012/03/louis-house-outside.jpeg">'+
+            '<div id="bodyContent">'+
+            '<p>In 1943, Louis Armstrong and his wife, Lucille, settled in a modest house in Corona, Queens, where they lived for the remainder of their lives. No one has lived in the house since the Armstrongs, and the house and its furnishings remain very much as they were during Louis and Lucille’s lifetime. Today, the Louis Armstrong House Museum is open to the public, offering guided tours of Louis’s longtime home. On the tour, audio clips from Louis’s homemade recordings are played, and visitors hear Louis practicing his trumpet, enjoying a meal, or talking with his friends. Visitors also get to enjoy an exhibit on Louis’s life and legacy, and the Armstrongs’ beautiful Japanese-inspired garden.</p>'+
+            '<p>Attribution: Louis Armstrong House, <a href="http://www.louisarmstronghouse.org/">'+
+            'http://www.louisarmstronghouse.org/</a> </p> '
+            '</div>'+
+            '</div>';
+          var content2 = '<div id="content2">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Tin Pan Alley</h1>'+
+            '28th street between 5th Avenue and Broadway' + '<br>' +
+            '<img src="https://duckduckgo.com/i/3b925012.jpg">'+
+            '<div id="bodyContent2">'+
+            '<p>These buildings were where a collection of New York City music publishers and songwriters who dominated the popular music of the United States in the late 19th century and early 20th century set up shop. A plaque exists on the sidewalk on 28th Street between Broadway and Sixth that commemorates it. The alley continued into the 1950s when earlier styles of American popular music were upstaged by the rise of rock & roll.</p>'+
+            '<p>Attribution: Tin Pan Alley, <a href="https://en.wikipedia.org/wiki/Tin_Pan_Alley">'+
+            'https://en.wikipedia.org/wiki/Tin_Pan_Alley</a> </p> '
+            '</div>'+
+            '</div>';
+          var content3 = '<div id="content3">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">CBGB</h1>'+
+            '315 Bowery, New York, 10003' + '<br>' +
+            '<img src="https://s-media-cache-ak0.pinimg.com/236x/20/0f/32/200f321300b33551bbe721fec3cac67f.jpg">'+
+            '<div id="bodyContent3">'+
+            '<p>CBGB was founded by Hilly Kristal in 1973. The letters stood for Country Bluegrass and Blues, which was what Kristal intended, but instead became a place for punk rock and new wave bands to perform such the Ramones, Blondie, Talking Heads, Misfits, Television, Patti Smith Group, The Dead Boys, The Dictators, The Cramps, and Joan Jett. </p>'+
+            '<p>Attribution: CBGB, <a href="http://www.cbgb.com/">'+
+            'http://www.cbgb.com/</a> </p> '
+            '</div>'+
+            '</div>';
+          var content4 = '<div id="content4">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Brill Building</h1>'+
+            '1619 Broadway, New York, NY 10019' + '<br>' +
+            '<img src="http://farm2.static.flickr.com/1026/559416457_f0bce671cc_m.jpg">'+
+            '<div id="bodyContent4">'+
+            "<p>The Brill Building is famous for housing music industry offices and studios where some of the most popular American music tunes of the 1940s to the 1960s were written. The songwriting team of Leiber and Stoller (Jerry Leiber and Mike Stoller), for example, composed a surprising number of hits for early R&B singers, including the Elvis Presley hits 'Hound Dog', 'Jailhouse Rock', and 'Treat Me Nice'. Scores of music publishers had offices in the Brill Building. Songs produced in this building were constantly at the top of Billboard's Hit Parade and played by the leading bands of the day.</p>"+
+            '<p>Attribution: Brill Building, <a href="https://en.wikipedia.org/wiki/Brill_Building">'+
+            'https://en.wikipedia.org/wiki/Brill_Building</a> </p> '
+            '</div>'+
+            '</div>';
+            var content5 = '<div id="content5">'+
+              '<div id="siteNotice">'+
+              '</div>'+
+              '<h1 id="firstHeading" class="firstHeading">Carnegie Hall</h1>'+
+              '881 7th Ave, New York' + '<br>' +
+              '<img src="http://www.jessicasandidge.com/uploads/3/6/1/6/3616998/_4320010.jpg">'+
+              '<div id="bodyContent5">'+
+              "<p>Built in 1891 by Andrew Carnegie with the architect William Burnet Tuthill, Carnegie Hall is a large concert venue with three auditoriums. It regularly hosts concerts and other events for people of all ages. Some notable performers have been pianist and composer Sergei Rachmaninoff, performer Judy Garland, Reverend Dr. Martin Luther King Jr., Leonard Bernstein, and more. </p>"+
+              '<p>Attribution: Carnegie Hall, <a href="http://www.carnegiehall.org/">'+
+              'http://www.carnegiehall.org/</a> </p> '
+              '</div>'+
+              '</div>';
+
+
+        //calls the infowindows
+        var infowindow1 = new google.maps.InfoWindow({
+          content: content1
+        });
+        var infowindow2 = new google.maps.InfoWindow({
+          content: content2
+        });
+        var infowindow3 = new google.maps.InfoWindow({
+          content: content3
+        });
+        var infowindow4 = new google.maps.InfoWindow({
+          content: content4
+        });
+        var infowindow5 = new google.maps.InfoWindow({
+          content: content5
+        });
+
+
+        //creates markers
+        var marker1 = new google.maps.Marker({
+          position: louisarmstrong,
+          icon: image,
+          map: map,
+          title: 'Louis Armstrong House'
+        });
+        marker1.addListener('click', function() {
+          infowindow1.open(map, marker1);
+        });
+
+        var marker2 = new google.maps.Marker({
+          position: tinpanalley,
+          icon: image,
+          map: map,
+          title: 'Tin Pan Alley'
+        });
+        marker2.addListener('click', function() {
+          infowindow2.open(map, marker2);
+        });
+        var marker3 = new google.maps.Marker({
+          position: cbgb,
+          icon: image,
+          map: map,
+          title: 'CBGB'
+        });
+        marker3.addListener('click', function() {
+          infowindow3.open(map, marker3);
+        });
+        var marker4 = new google.maps.Marker({
+          position: brillbuilding,
+          icon: image,
+          map: map,
+          title: 'Brill Building'
+        });
+        marker4.addListener('click', function() {
+          infowindow4.open(map, marker4);
+        });
+        var marker5 = new google.maps.Marker({
+          position: carnegiehall,
+          icon: image,
+          map: map,
+          title: 'Carnegie Hall'
+        });
+        marker5.addListener('click', function() {
+          infowindow5.open(map, marker5);
+        });
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Current Location');
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?&callback=initMap">
+    </script>
+  </body>
+</html>
